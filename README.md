@@ -120,16 +120,16 @@ cd ..
 uv pip install -r requirements.txt
 ```
 
-Finally, install pytorch Nightly:
+<!-- Finally, install pytorch Nightly:
 
 ```
 uv pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
-```
+``` -->
 
 Or, in case of NVIDIA RTX 50-series (5090, etc.) you will need to install cu128 torch and update bitsandbytes to the latest:
 
 ```
-pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu128
+uv pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu128
 pip install -U bitsandbytes
 ```
 

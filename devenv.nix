@@ -14,4 +14,5 @@
     ninja
     libGL
   ];
+  env.LD_LIBRARY_PATH = "/run/opengl-driver/lib";
 }
