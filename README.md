@@ -110,20 +110,20 @@ Now go to the `sd-scripts` folder and install dependencies to the activated envi
 
 ```
 cd sd-scripts
-pip install -r requirements.txt
+uv pip install -r requirements.txt
 ```
 
 Now come back to the root folder and install the app dependencies:
 
 ```
 cd ..
-pip install -r requirements.txt
+uv pip install -r requirements.txt
 ```
 
 Finally, install pytorch Nightly:
 
 ```
-pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+uv pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
 ```
 
 Or, in case of NVIDIA RTX 50-series (5090, etc.) you will need to install cu128 torch and update bitsandbytes to the latest:
