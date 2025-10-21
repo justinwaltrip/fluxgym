@@ -21,6 +21,7 @@ from argparse import Namespace
 import train_network
 import toml
 import re
+from transformers import Florence2Processor, Florence2ForConditionalGeneration
 MAX_IMAGES = 150
 
 with open('models.yaml', 'r') as file:
@@ -275,10 +276,10 @@ def run_captioning(images, concept_sentence, *captions):
     device = "cuda" if torch.cuda.is_available() else "cpu"
     print(f"device={device}")
     torch_dtype = torch.float16
-    model = AutoModelForCausalLM.from_pretrained(
-        "multimodalart/Florence-2-large-no-flash-attn", torch_dtype=torch_dtype, trust_remote_code=True
+    model = Florence2ForConditionalGeneration.from_pretrained(
+        "ducviet00/Florence-2-large-hf", torch_dtype=torch_dtype, trust_remote_code=True
     ).to(device)
-    processor = AutoProcessor.from_pretrained("multimodalart/Florence-2-large-no-flash-attn", trust_remote_code=True)
+    processor = Florence2Processor.from_pretrained("ducviet00/Florence-2-large-hf", trust_remote_code=True)
 
     captions = list(captions)
     for i, image_path in enumerate(images):
